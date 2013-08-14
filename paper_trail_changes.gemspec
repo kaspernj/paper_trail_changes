@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/paper_trail_changes.rb",
+    "paper_trail_changes.gemspec",
     "spec/paper_trail_changes_spec.rb",
     "spec/spec_helper.rb"
   ]
