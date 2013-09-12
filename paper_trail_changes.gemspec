@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "paper_trail_changes"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["kaspernj"]
-  s.date = "2013-08-15"
+  s.date = "2013-09-12"
   s.description = "A gem to do various stuff with PaperTrail versions."
   s.email = "k@spernj.org"
   s.extra_rdoc_files = [
