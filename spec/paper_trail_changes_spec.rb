@@ -9,14 +9,16 @@ end
 describe "PaperTrailChanges" do
   it "should handle booleans" do
     changes = PaperTrailChanges.changes_hash(
-      :attributes => {"works" => "1", "fails" => 0, "doesnt_fail" => "1"},
-      :version_hash => {"works" => true, "fails" => false, "doesnt_fail" => false},
-      :column_types => {"works" => :boolean, "fails" => :boolean, "doesnt_fail" => :boolean}
+      :attributes => {"works" => "1", "fails" => 0, "doesnt_fail" => "1", "reverts_to_false" => ""},
+      :version_hash => {"works" => true, "fails" => false, "doesnt_fail" => false, "reverts_to_false" => true},
+      :column_types => {"works" => :boolean, "fails" => :boolean, "doesnt_fail" => :boolean, "reverts_to_false" => :boolean}
     )
     
-    changes.length.should eql(1)
+    changes.length.should eql(2)
     changes.keys.first.should eql("doesnt_fail")
     changes.values.first.should eql("1")
+    changes.keys.should include("reverts_to_false")
+    changes["reverts_to_false"].should eql("")
   end
   
   it "should handle integers" do
