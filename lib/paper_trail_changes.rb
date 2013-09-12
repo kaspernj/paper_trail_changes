@@ -80,7 +80,16 @@ class PaperTrailChanges
           changed = true if last_val.to_i != val.to_i
           changed = true if last_val == nil && val
         elsif type == :boolean
-          bool_i = last_val ? 1 : 0
+          if last_val == true
+            bool_i = 1
+          elsif last_val == false
+            bool_i = 0
+          elsif last_val.to_i == 1
+            bool_i = 1
+          elsif last_val.to_i == 0
+            bool_i = 0
+          end
+          
           changed = true if bool_i != val.to_i
           changed = true if last_val == nil && val
         else
